@@ -91,7 +91,10 @@ is taken with the device's camera.
 __Arguments__
 
 * `options` - Object. Mostly, the options you can pass to Cordova's [getPicture](http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#cameraOptions)
-
+  * `triggerEvent` - (Selector) - An event name on which to launch the camera.
+     The event is listend on the element designated by the `triggerElement`. **Default**: `click`.
+  * `triggerElement` - (Selector) - A jQuery selector for an element on which 
+    to listen the `triggerEvent`. **Default**: The element/s this plugin acts upon.
 __Events__
 
 * `success` - Emitted when the user takes a picture.
