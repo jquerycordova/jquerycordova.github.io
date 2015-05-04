@@ -10,7 +10,7 @@
 body {
   font-family: 'Lato', arial, sans-serif;
   color: #444444;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.8em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,6 +25,7 @@ h6 {
   font-weight: 700;
   color: #b4ca65;
   margin-top: 1em;
+  word-wrap: break-word;
 }
 
 h4 {

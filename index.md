@@ -4,10 +4,11 @@ title: Home
 ---
 
 <hr id="about">
-## What is cordova.jquery?
+## What is jquery.cordova?
 
 jQuery.cordova is a set of jQuery plugins for using native device functions on
-your hybrid apps.
+your hybrid apps. It's based on `cordova.js` but <strong>jQuery.cordova</strong>
+presents a nice jQuery-style interface.
 
 See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easily)
 
