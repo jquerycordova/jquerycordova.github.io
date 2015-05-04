@@ -81,11 +81,11 @@ is taken with the device's camera.
 
 <blockquote>
   <p>
-    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a>
-  </p>
+    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a><br>
     <code>
       org.apache.cordova.camera
     </code>
+  </p>
 </blockquote>
 
 
@@ -122,11 +122,11 @@ an image from the device's gallery.
 
 <blockquote>
   <p>
-    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a>
-  </p>
+    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a><br>
     <code>
       org.apache.cordova.camera
     </code>
+  </p>
 </blockquote>
 
 
@@ -175,10 +175,10 @@ a default audio recording app installed**.
 
 ### Add the libraries to your index.html file
 
-* Add `cordova.js` to your directory and via a `<script>` tag inside your `index.html` (*).
-* Add `jquery.cordova.js` to your html.
-* Create an HTML element and transform it into a jquery.cordova widget (e.g. `("#el").camera()`).
-* Create a config.xml file in the same directory where `index.html` resides.
+1. Add `cordova.js` to your directory and via a `<script>` tag inside your `index.html` (*).
+1. Add `jquery.cordova.js` to your html.
+1. Create an HTML element and transform it into a jquery.cordova widget. e.g. `$("#el").camera()`.
+1. Create a `config.xml` file in the same directory where `index.html` resides.
 
 _(*) `cordova.js` is also added automagically if you upload the code to Phonegap Build_.
 
@@ -187,7 +187,7 @@ _(*) `cordova.js` is also added automagically if you upload the code to Phonegap
 
 * Sign up at [Phonegap Build](http://build.phonegap.com) and create an app inside.
 * Upload your HTML/JS/CSS and the `config.xml` files in a zip with the **Update code** button. <em>It will add cordova.js for you</em>
-* Download the `apk` for instance (Android binary).
-* See the magic.
+* Download the Android binary for example and test in your device..
+* Debug the app with Chrome Inspect.
 
 *__PhoneGap__ is a registered trademark of Adobe*.
