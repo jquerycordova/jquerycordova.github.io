@@ -16,6 +16,7 @@ See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easil
 
     <head>
       <script src="cordova.js"></script>
+      <script src="jquery.js"></script>
       <script src="jquery.cordova.js"></script>
     </head>
     <body>
@@ -48,7 +49,6 @@ See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easil
 
 ### Add jquery.cordova to your scripts in the HTML
   
-    <head>
       <script src="jquery.cordova.js"></script>
     </head>
     <body>
@@ -77,7 +77,7 @@ Every __jquery.cordova__ widget is used as you use every jQuery plugin.
 
 #### $(selector).camera(options)
 
-Allows an HTML element to receive an `success` event when a photo 
+Allows an HTML element to receive a `success` event when a photo 
 is taken with the device's camera.
 
 <blockquote>
@@ -119,7 +119,7 @@ __Example__
  
 #### $(selector).galleryimage(options)
 
-Allows an HTML element to receive an `success` event when the users selects
+Allows an HTML element to receive a `success` event when the users selects
 an image from the device's gallery.
 
 <blockquote>
@@ -173,21 +173,25 @@ a default audio recording app installed**.
 
 ## How do I create an hybrid app easily?
 
-### Add the libraries to your index.html file
+#### Add the libraries to your index.html file
 
-1. Add `cordova.js` to your directory and via a `<script>` tag inside your `index.html` (*).
-1. Add `jquery.cordova.js` to your html.
+1. Add **jQuery** and **cordova.js** and **jquery.cordova.js** to your directory (*).
+1. Add a `<script>` tag inside your `index.html` referencing `jquery.cordova.js`.
 1. Create an HTML element and transform it into a jquery.cordova widget. e.g. `$("#el").camera()`.
 1. Create a `config.xml` file in the same directory where `index.html` resides.
 
-_(*) `cordova.js` is also added automagically if you upload the code to Phonegap Build_.
+_(*) **cordova.js** is added automagically if you upload the code to Phonegap Build_.
 
 
-### Convert the HTML into an hybrid app.
+#### Convert the HTML into an hybrid app.
 
 * Sign up at [Phonegap Build](http://build.phonegap.com) and create an app inside.
 * Upload your HTML/JS/CSS and the `config.xml` files in a zip with the **Update code** button. <em>It will add cordova.js for you</em>
 * Download the Android binary for example and test in your device..
-* Debug the app with Chrome Inspect.
+
+#### Debugging
+
+* If Android, debug the app by connecting the device to your desktop via USB and with Chrome Inspect by entering `chrome://inspect` in the address bar.
+* If iOS, debug by connecting your device via USB and using Safari Dev tools.
 
 *__PhoneGap__ is a registered trademark of Adobe*.
