@@ -64,7 +64,7 @@ See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easil
     </body>
 
 
-<h2 class="page-header">API</h2>
+<h2 id="api" class="page-header">API</h2>
 
 Every __jquery.cordova__ widget is used as you use every jQuery plugin.
 
