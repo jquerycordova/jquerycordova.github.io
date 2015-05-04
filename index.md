@@ -82,7 +82,7 @@ Convert an `<img>` into a container for a photo from the device's camera.
 
 __Arguments__
 
-* `options` - Object.
+* `options` - Object. Mostly, the options you can pass to Cordova's [getPicture](http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#cameraOptions)
   * `sourceType` - Which camera function to use. 
 
 __Events__
