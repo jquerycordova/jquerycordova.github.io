@@ -3,13 +3,13 @@ layout: template
 title: Home
 ---
 
+<section id="about">
 ## What is cordova.jquery?
 
 jQuery.cordova is a set of jQuery plugins for using native device functions on
 your hybrid apps.
 
 See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easily)
-
 
 ## Usage
 
@@ -62,6 +62,9 @@ See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easil
         });
       </script>
     </body>
+
+</section>
+
 <h2 class="page-header">API</h2>
 
 Every __jquery.cordova__ widget is used as you use every jQuery plugin.
