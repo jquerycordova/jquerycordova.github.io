@@ -82,9 +82,7 @@ is taken with the device's camera.
 <blockquote>
   <p>
     Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a><br>
-    <code>
-      org.apache.cordova.camera
-    </code>
+    <code>org.apache.cordova.camera</code>
   </p>
 </blockquote>
 
@@ -123,9 +121,7 @@ an image from the device's gallery.
 <blockquote>
   <p>
     Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a><br>
-    <code>
-      org.apache.cordova.camera
-    </code>
+    <code>org.apache.cordova.camera</code>
   </p>
 </blockquote>
 
