@@ -45,21 +45,17 @@ your hybrid apps.</p>
 
 For using with browserify:
 
-```
-  $ npm install jquery.cordova
-```
+    $ npm install jquery.cordova
 
 ## Usage in the browser
 
-```
-<script src="jquery.cordova.js"></script>
-<img style="height:400px" class="camera"></img>
-<script>
-$(function() {
-  $(".camera").camera();
-});
-</script>
-```
+    <script src="jquery.cordova.js"></script>
+    <img style="height:400px" class="camera"></img>
+    <script>
+    $(function() {
+      $(".camera").camera();
+    });
+    </script>
 
 ### Usage with browserify
 
@@ -97,7 +93,6 @@ __Events__
 
 __Example__
 
-```
     <div id="camera"></div>
 
     <script type="text/javascript">
@@ -107,7 +102,6 @@ __Example__
         });
       });
     </script>
-```
  
 
 
