@@ -1,3 +1,7 @@
+---
+layout: template
+---
+
 ## What is cordova.jquery?
 
 <p>jQuery.cordova is a set of jQuery plugins for using native device functions on
