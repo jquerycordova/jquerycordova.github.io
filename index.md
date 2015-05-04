@@ -14,29 +14,25 @@ your hybrid apps.</p>
 
 ## Usage
 
-```
-<head>
-  <!-- cordova.js is automatically added for you if you use Phonegap Build-->
-  <script src="cordova.js"></script>
-  <!-- jquery.cordova.js includes all the widgets-->
-  <script src="jquery.cordova.js"></script>
-</head>
-<body>
-  <!-- the elements you will transform into device native functionality capable -->
-  <img style="height:400px" class="camera"></img>
-  <img style="height:400px" class="camera"></img>
-  <img style="height:400px" class="camera"></img>
-  
-  <script>
-    $(function() {
-      $(".camera").camera();
-    });
-  </script>
-  
+    <head>
+      <!-- cordova.js is automatically added for you if you use Phonegap Build-->
+      <script src="cordova.js"></script>
+      <!-- jquery.cordova.js includes all the widgets-->
+      <script src="jquery.cordova.js"></script>
+    </head>
+    <body>
+      <!-- the elements you will transform into device native functionality capable -->
+      <img style="height:400px" class="camera"></img>
+      <img style="height:400px" class="camera"></img>
+      <img style="height:400px" class="camera"></img>
+      
+      <script>
+        $(function() {
+          $(".camera").camera();
+        });
+      </script>
+      
 </body>
-
-
-```
 
 ## Installation
 
