@@ -8,7 +8,7 @@ title: Home
 jQuery.cordova is a set of jQuery plugins for using native device functions on
 your hybrid apps.
 
-See [How do I create an hybrid app easily?](how-do-i-create-an-hybrid-app-easily)
+See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easily)
 
 
 ## Usage
@@ -173,7 +173,7 @@ a default audio recording app installed**.
 
 ### Add the libraries to your index.html file
 
-* Add `cordova.js` to your directory and in an `<script>` tag inside your `index.html` (*).
+* Add `cordova.js` to your directory and via a `<script>` tag inside your `index.html` (*).
 * Add `jquery.cordova.js` to your html.
 * Create an HTML element and transform it into a jquery.cordova widget (e.g. `("#el").camera()`).
 * Create a config.xml file in the same directory where `index.html` resides.
@@ -183,7 +183,9 @@ _(*) `cordova.js` is also added automagically if you upload the code to Phonegap
 
 ### Convert the HTML into an hybrid app.
 
-* Create an account at http://build.phonegap.com.
-* Drop your HTML/JS/CSS files in <a href="http://build.phonegap.com">Phonegap Build</a>. <em>It will add cordova.js for you</em>
+* Sign up at [Phonegap Build](http://build.phonegap.com) and create an app inside.
+* Upload your HTML/JS/CSS and the `config.xml` files in a zip with the **Update code** button. <em>It will add cordova.js for you</em>
 * Download the `apk` for instance (Android binary).
 * See the magic.
+
+*__PhoneGap__ is a registered trademark of Adobe*.
