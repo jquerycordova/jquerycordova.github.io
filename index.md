@@ -1,5 +1,6 @@
 ---
 layout: template
+title: Home
 ---
 
 ## What is cordova.jquery?
