@@ -14,6 +14,12 @@ See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easil
 
 ## Usage
 
+NOTE: The majority of the plugins work on a real device, and not in the emulator
+nor the desktop browser. You also need to add the required Cordova plugin to your app
+for each specific functionality.
+
+
+
     <head>
       <script src="cordova.js"></script>
       <script src="jquery.js"></script>
@@ -67,13 +73,9 @@ See [How do I create an hybrid app easily?](#how-do-i-create-an-hybrid-app-easil
 
 <h2 id="api" class="page-header">API</h2>
 
-Every __jquery.cordova__ widget is used as you use every jQuery plugin.
+The API consists of a set of jQuery plugins. You use them like `$("#element").pluginname()`.
 
-<p>
-  NOTE: The majority of the plugins work on a real device, and not in the emulator
-  nor the desktop browser. You also need to add the required Cordova plugin to your app
-  for each specific functionality.
-</p>
+### Plugins
 
 #### $(selector).camera(options)
 
@@ -82,8 +84,10 @@ is taken with the device's camera.
 
 <blockquote>
   <p>
-    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a><br>
-    <code>org.apache.cordova.camera</code>
+    Requires the <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_camera_camera.md.html#Camera"> Cordova camera plugin</a><br>
+    Run <code>$ cordova plugin add org.apache.cordova.camera</code> 
+    on a local Phonegap/Cordova project or add 
+    <code>&lt;gap:plugin name="org.apache.cordova.camera" /%gt;</code> to you `config.xml`
   </p>
 </blockquote>
 
@@ -95,28 +99,31 @@ __Arguments__
      The event is listend on the element designated by the `triggerElement`. **Default**: `click`.
   * `triggerElement` - (Selector) - A jQuery selector for an element on which 
     to listen the `triggerEvent`. **Default**: The element/s this plugin acts upon.
+
 __Events__
 
-* `success` - Emitted when the user takes a picture.
+* `success` - Emitted when the user takes a picture. The event handler receives this arguments:
   * `event` - The standard jQuery event object that is always the first argument to your callback.
   * `imageData` - Base64 encoding of the image data, or the image file URI, depending on cameraOptions in effect. (String).
-* `fail` - Emitted when the user cancels the picture.
+* `fail` - Emitted when the user cancels the picture. The event handler receives this arguments:
   * `event` - The standard jQuery event object that is always the first argument to your callback.
   * `msg` - A message that explains why the operation fails or if it was cancelled. 
 
+__Methods__
+
+* **$(selector).camera('getPicture', options)** - Calls `navigator.camera.getPicture()`.
+  * `options` - The same options that `navigatore.camera.getPicture()` accepts.
+ 
+
 __Example__
 
-    <div id="camera"></div>
-
-    <script type="text/javascript">
-      $(function() {
-        $("#camera").camera().on("success", function(imageData) {
-          var src = "data:image/jpeg;base64," + imageData;
-          $(this).attr("src", src);
-        });
+    $(function() {
+      $("#camera").camera().on("success", function(event, imageData) {
+        var src = "data:image/jpeg;base64," + imageData;
+        $(this).attr("src", src);
       });
-    </script>
- 
+    });
+
 #### $(selector).galleryimage(options)
 
 Allows an HTML element to receive a `success` event when the users selects
@@ -137,38 +144,175 @@ __Arguments__
 
 __Events__
 
-* `success` - Emitted when the user takes a picture.
-  * `event` - The standard j!uery event object that is always the first argument to your callback.
+* `success` - Emitted when the user takes a picture. The event handler receives this arguments:
+  * `event` - The standard jQuery event object that is always the first argument
+    to your callback.
   * `imageData` - Base64 encoding of the image data, or the image file URI, depending on cameraOptions in effect. (String).
-* `fail` - Emitted when the user cancels the picture.
+* `fail` - Emitted when the user cancels the picture. The event handler receives this arguments:
   * `event` - The standard jQuery event object that is always the first argument to your callback.
   * `msg` - A message that explains why the operation fails or if it was cancelled. 
 
+__Methods__
+
+* **$(selector).galleryimage('getPicture', options)** - Calls `navigator.camera.getPicture()`.
+  * `options` - The same options that `navigatore.camera.getPicture()` accepts.
+
 __Example__
 
-    <div id="image"></div>
-
-    <script type="text/javascript">
-      $(function() {
-        $("#image").galleryimage().on("success", function(imageData) {
-          var src = "data:image/jpeg;base64," + imageData;
-          $(this).attr("src", src);
-        });
+    $(function() {
+      $("#image").galleryimage().on("success", function(event, imageData) {
+        var src = "data:image/jpeg;base64," + imageData;
+        $(this).attr("src", src);
       });
-    </script>
+    });
+
+
+
+#### $.accelerometer(options)
+
+
+Allows an HTML element to receive a `success` event periodically with current
+accelerometer data.
+
+<blockquote>
+  <p>
+    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_accelerometer_accelerometer.md.html#Accelerometer"> Cordova device-motion plugin</a><br>
+    <code>org.apache.cordova.device-motion</code>
+  </p>
+</blockquote>
+
+
+__Arguments__
+
+* `options` - Object. Mostly, the options you can pass to Cordova's [watchAcceleration](http://cordova.apache.org/docs/en/3.3.0/cordova_accelerometer_accelerometer.md.html#accelerometer.watchAcceleration)
+  * `frequency`: How often to retrieve the Acceleration in milliseconds. (Number) (Default: 10000).
+
+__Events__
+
+* `success` - Emitted when the user takes a picture. The event handler receives this arguments:
+  * `event` - The standard jQuery event object that is always the first argument
+    to your callback.
+  * `acceleration` - (Object) Contains Accelerometer data captured at a specific point in time.
+    * `x` -  Amount of acceleration on the x-axis. (in m/s^2) (Number)
+    * `y` -  Amount of acceleration on the y-axis. (in m/s^2) (Number)
+    * `z` -  Amount of acceleration on the z-axis. (in m/s^2) (Number)
+    * `timestamp` - Creation timestamp in milliseconds. (DOMTimeStamp)  
+* `fail` - Emitted when the watch fails. The event handler receives this arguments:
+  * `event` - The standard jQuery event object that is always the first argument to your callback.
+  * `msg` - A message that explains why the operation fails or if it was cancelled. 
+
+__Methods__
+
+* **$(selector).accelerometer('watchAcceleration', options)** - Calls `navigator.accelerometer.watchAcceleration()`.
+  * `options` - The same options that `navigatore.accelerometer.watchAcceleration()` accepts.
+    * `frequency`: How often to retrieve the Acceleration in milliseconds. (Number) (Default: 10000).
+
+__Example__
+
+    $(function() {
+      $("#image").galleryimage().on("success", function(event, acceleration) {
+        $(this).html("Acceleration x: " + acceleration.x);
+      });
+    });
+
+
+#### $.compass(options)
+
+Allows an HTML element to receive a `success` event periodically with current
+device orientation data.
+
+<blockquote>
+  <p>
+    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_compass_compass.md.html#Compass"> Cordova device-orientation plugin</a><br>
+    <code>org.apache.cordova.device-orientation</code>
+  </p>
+</blockquote>
+
+
+__Arguments__
+
+* `options` - Object. Mostly, the options you can pass to Cordova's [watchHeading](http://cordova.apache.org/docs/en/3.3.0/cordova_compass_compass.md.html#compass.watchHeading)
+  * `frequency`: How often to retrieve the Heading data in milliseconds. (Number) (Default: 100).
+  * `filter`: The change in degrees required to trigger a success event. (Number).
+
+__Events__
+
+* `success` - Emitted when interval is done. The event handler receives this arguments:
+  * `event` - The standard jQuery event object that is always the first argument
+    to your callback.
+  * `heading` - (Object) Contains device heading data captured at a specific point in time.
+    * `magneticHeading` -  Degrees 0-360, with 0 being the north (Number)
+* `fail` - Emitted when the watch fails. The event handler receives this arguments:
+  * `event` - The standard jQuery event object that is always the first argument to your callback.
+  * `msg` - A message that explains why the operation fails or if it was cancelled. 
+
+__Methods__
+
+* **$(selector).compass('watchHeading', options)** - Calls `navigator.compass.watchHeading()`.
+  * `options` - The same options that `navigator.compass.watchHeading()` accepts.
+    * `frequency`: How often to retrieve the heading data in milliseconds. (Number) (Default: 10000).
+    * `filter`: The change in degrees required to trigger a success event. (Number).
+
+__Example__
+
+    $(function() {
+      $("#image").compass().on("success", function(event, heading) {
+        $(this).html("Device is headed at  " + heading.magneticHeading " degrees from North");
+      });
+    });
+
+
+
+#### $.contacts(options)
+
+Allows an HTML element to receive a `success` event with current
+contacts data.
+
+<blockquote>
+  <p>
+    Requires <a href="http://cordova.apache.org/docs/en/3.3.0/cordova_contacts_contacts.md.html#Contacts"> Cordova contacts plugin</a><br>
+    <code>org.apache.cordova.contacts</code>
+  </p>
+</blockquote>
+
+
+__Arguments__
+
+* `options` - Object. Mostly, the options you can pass to Cordova's [contact.find()](http://cordova.apache.org/docs/en/3.3.0/cordova_contacts_contacts.md.html#contacts.find)
+  * `contactFields` - (Array).
+  * `contactFieldOptions`.
+    * `filter`.
+    * `multiple`.
+__Events__
+
+* `success` - Emitted when contacts are retrieved is done. The event handler receives this arguments:
+  * `event` - The standard jQuery event object that is always the first argument
+    to your callback.
+  * `contacts` - (Array) An array with contacts information. Every contact is an Object with multiple properties.
+* `fail` - Emitted when the watch fails. The event handler receives this arguments:
+  * `event` - The standard jQuery event object that is always the first argument to your callback.
+  * `msg` - A message that explains why the operation fails or if it was cancelled. 
+
+__Methods__
+
+* **$(selector).accelerometer('watchHeading', options)** - Calls `navigator.compass.watchHeading()`.
+  * `options` - The same options that `navigator.compass.watchHeading()` accepts.
+    * `frequency`: How often to retrieve the heading data in milliseconds. (Number) (Default: 10000).
+
+__Example__
+
+    $(function() {
+      $("#image").compass().on("success", function(event, heading) {
+        $(this).html("Device is headed at  " + heading.magneticHeading " degrees from North");
+      });
+    });
+
+
 
 #### $.audiocapture(options)
 
 **This plugin may not work on some devices if the operating system does not have
 a default audio recording app installed**.
-
-#### $.accelerometer(options)
-
-#### $.compass(options)
-
-#### $.contacts(options)
-
-
 
 
 ## How do I create an hybrid app easily?
